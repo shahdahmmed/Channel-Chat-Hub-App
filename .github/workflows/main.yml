@@ -36,13 +36,12 @@ jobs:
 
       - name: Build APK
         run: flutter build apk --debug --split-per-abi
-
-      - name: Push to Releases
-        uses: ncipollo/release-action@v1
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
         with:
-          artifacts: "build/app/outputs/flutter-apk/*"
-          tag: v1.0.${{ github.run_number }}
-          token: ${{ secrets.TOKEN2 }}
+          name: Releases
+          path: |
+            build/app/outputs/flutter-apk/app-release.apk
 
       - name: Upload to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1

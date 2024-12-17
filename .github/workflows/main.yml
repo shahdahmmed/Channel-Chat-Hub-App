@@ -42,7 +42,7 @@ jobs:
         with:
           artifacts: "build/app/outputs/flutter-apk/*"
           tag: v1.0.${{ github.run_number }}
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.TOKEN2 }}
 
       - name: Upload to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
